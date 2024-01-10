@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:clean_architecture_tdd_flutter_template/core/errors/failure.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/data/models/user_model.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/domain/usecases/add_photo.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/domain/usecases/sign_in.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/domain/usecases/sign_in_with_credential.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/domain/usecases/sign_out.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/domain/usecases/update_user.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/presentation/bloc/auth_bloc.dart';
+import 'package:klarcafe/core/errors/failure.dart';
+import 'package:klarcafe/src/auth/data/models/user_model.dart';
+import 'package:klarcafe/src/auth/domain/usecases/add_photo.dart';
+import 'package:klarcafe/src/auth/domain/usecases/sign_in.dart';
+import 'package:klarcafe/src/auth/domain/usecases/sign_in_with_credential.dart';
+import 'package:klarcafe/src/auth/domain/usecases/sign_out.dart';
+import 'package:klarcafe/src/auth/domain/usecases/update_user.dart';
+import 'package:klarcafe/src/auth/presentation/bloc/auth_bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

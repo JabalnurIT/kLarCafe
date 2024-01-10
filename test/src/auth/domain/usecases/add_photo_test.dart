@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:clean_architecture_tdd_flutter_template/src/auth/domain/repositories/auth_repository.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/domain/usecases/add_photo.dart';
+import 'package:klarcafe/src/auth/domain/repositories/auth_repository.dart';
+import 'package:klarcafe/src/auth/domain/usecases/add_photo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

@@ -1,4 +1,4 @@
-package com.example.clean_architecture_tdd_flutter_template
+package com.example.klarcafe
 
 import io.flutter.embedding.android.FlutterActivity
 

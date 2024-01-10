@@ -1,14 +1,14 @@
-import 'package:clean_architecture_tdd_flutter_template/core/enums/update_user_action.dart';
-import 'package:clean_architecture_tdd_flutter_template/core/errors/exceptions.dart';
-import 'package:clean_architecture_tdd_flutter_template/core/utils/constanst.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/data/datasources/auth_remote_data_source.dart';
-import 'package:clean_architecture_tdd_flutter_template/src/auth/data/models/user_model.dart';
+import 'package:klarcafe/core/enums/update_user_action.dart';
+import 'package:klarcafe/core/errors/exceptions.dart';
+import 'package:klarcafe/core/utils/constanst.dart';
+import 'package:klarcafe/src/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:klarcafe/src/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:clean_architecture_tdd_flutter_template/core/services/api.dart';
+import 'package:klarcafe/core/services/api.dart';
 
 class MockSharedPreferences extends Mock implements SharedPreferences {}
 
