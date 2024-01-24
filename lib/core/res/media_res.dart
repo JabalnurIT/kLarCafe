@@ -49,12 +49,14 @@ class MediaRes {
   static const noImage = '$_baseIcons/no_image.svg';
 
   // Backgrounds
-  static const defaultBackground = '$_baseImages/background.png';
-  static const colorBackground = '$_baseImages/color_background.png';
-  static const splashBackground = '$_baseImages/splash_background.png';
+  // static const defaultBackground = '$_baseImages/forest.png';
+  static const colorBackground = '$_baseImages/color_background.jpg';
+  static const splashBackground = '$_baseImages/color_background.jpg';
 
   // Objects
-  static const itemExample = '$_baseImages/item_example.png';
+  // static const itemExample = '$_baseImages/item_example.png';
+  // static const saminkuLogo = '$_baseImages/saminku.png';
+  // static const saminkuMascot = '$_baseImages/saminku_mascot.PNG';
 
   // Logo
   static const noProfilePicture = '$_baseImages/no_profile_picture.png';

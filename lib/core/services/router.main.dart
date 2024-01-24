@@ -10,22 +10,14 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         ),
         settings: settings,
       );
-    case SignInScreen.routeName:
+    case MenuScreen.routeName:
       return _pageBuilder(
-        (_) => BlocProvider(
-          create: (_) => sl<AuthBloc>(),
-          child: const SignInScreen(),
-        ),
+        (_) => const MenuScreen(),
         settings: settings,
       );
     case Dashboard.routeName:
       return _pageBuilder(
         (_) => const Dashboard(),
-        settings: settings,
-      );
-    case ProfileScreen.routeName:
-      return _pageBuilder(
-        (_) => const ProfileScreen(),
         settings: settings,
       );
     default:

@@ -2,41 +2,49 @@ import 'package:flutter/material.dart';
 
 import '../../res/colours.dart';
 
-class AppBarCore extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarCore({
+class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MainAppBar({
     super.key,
-    required this.title,
+    this.title,
     this.icon,
-    this.child,
+    this.buttonAction,
     this.size = 20,
     this.isBackButton = false,
     this.centerTitle = false,
+    this.height = 72,
     this.onPressed,
   });
 
   final Icon? icon;
-  final String title;
-  final Widget? child;
+  final Widget? title;
+  final Widget? buttonAction;
   final double? size;
   final bool? isBackButton;
   final bool centerTitle;
+  final double height;
   final Function()? onPressed;
 
   @override
-  Widget build(BuildContext context) {
+  AppBar build(BuildContext context) {
     return AppBar(
+      scrolledUnderElevation: 0,
       actions: [
-        child != null
-            ? Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: child,
-              )
-            : const SizedBox.shrink(),
+        buttonAction ??
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.info_outline,
+                size: 52,
+                color: Colours.successColour,
+              ),
+            ),
       ],
       centerTitle: centerTitle,
-      backgroundColor: Colours.primaryColour,
-      foregroundColor: Colours.secondaryColour,
+      backgroundColor: Colors.transparent,
+      foregroundColor: Colours.whiteColour,
+      toolbarHeight: height,
       elevation: 0,
+      leadingWidth: 82,
       leading: isBackButton == true
           ? IconButton(
               icon: Icon(
@@ -51,18 +59,11 @@ class AppBarCore extends StatelessWidget implements PreferredSizeWidget {
               color: Colours.secondaryColour,
               iconSize: 30,
             )
-          : const SizedBox.shrink(),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: Colours.secondaryColour,
-          fontSize: size,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
+          : null,
+      title: title,
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(height);
 }

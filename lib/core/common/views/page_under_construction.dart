@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../res/colours.dart';
 import '../../res/media_res.dart';
 import '../widgets/gradient_background.dart';
 
@@ -13,8 +14,14 @@ class PageUnderConstruction extends StatelessWidget {
       body: GradientBackground(
         image: MediaRes.colorBackground,
         child: Center(
-          child: Lottie.asset(
-            MediaRes.construction,
+          child: ColorFiltered(
+            colorFilter: const ColorFilter.mode(
+              Colours.primaryColour,
+              BlendMode.srcIn,
+            ),
+            child: Lottie.asset(
+              MediaRes.construction,
+            ),
           ),
         ),
       ),

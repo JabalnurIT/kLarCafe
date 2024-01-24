@@ -54,7 +54,7 @@ class _SignInScreenState extends State<SignInScreen> {
         },
         builder: (context, state) {
           return GradientBackground(
-            image: MediaRes.defaultBackground,
+            image: MediaRes.colorBackground,
             child: ContainerCard(
               backgroundColor: Colours.secondaryColour,
               header: Stack(

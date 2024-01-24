@@ -7,61 +7,55 @@ class BottomSheetWidget extends StatelessWidget {
     required this.child,
     this.buttons,
     this.buttonsBottomPosition,
-    this.height,
+    this.height = 0.8,
   });
 
   final Widget child;
   final List<Widget>? buttons;
   final double? buttonsBottomPosition;
-  final double? height;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        color: Colours.secondaryColour,
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20),
+    return FractionallySizedBox(
+      heightFactor: height,
+      child: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          color: Colours.whiteColour,
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(20),
+          ),
         ),
-      ),
-      height: height ?? MediaQuery.of(context).size.height * 0.5,
-      child: Stack(
-        children: [
-          Positioned(
-            top: 20,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: Container(
-                width: 64,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: Colours.primaryColour,
-                  borderRadius: BorderRadius.circular(5),
+        height: double.infinity,
+        child: Stack(
+          children: [
+            Positioned(
+              top: 20,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: Container(
+                  width: 64,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colours.accentColour,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: buttonsBottomPosition ?? 62,
-            left: 0,
-            right: 0,
-            child: Align(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  child,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: buttons ?? [],
-                  ),
-                ],
+            Positioned(
+              top: 40,
+              left: 0,
+              right: 0,
+              child: Align(
+                alignment: Alignment.center,
+                child: child,
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

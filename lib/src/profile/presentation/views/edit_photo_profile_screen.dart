@@ -102,7 +102,7 @@ class EditPhotoProfileScreenState extends State<EditPhotoProfileScreen> {
                                       right: 24,
                                       bottom: 24,
                                     ),
-                                    color: Colours.profileBackgroundColour,
+                                    color: Colours.primaryColour,
                                     child: SvgPicture.asset(
                                       MediaRes.profileIcon,
                                       fit: BoxFit.cover,

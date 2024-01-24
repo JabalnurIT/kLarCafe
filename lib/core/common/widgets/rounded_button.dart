@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../res/colours.dart';
-import '../../res/fonts.dart';
+import 'main_text.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
@@ -17,6 +17,9 @@ class RoundedButton extends StatelessWidget {
     this.radius,
     this.icon,
     this.iconPositionFront = true,
+    this.fontSize,
+    this.buttonSize,
+    this.iconOnly = false,
   });
 
   final Color? backgroundColor;
@@ -30,57 +33,62 @@ class RoundedButton extends StatelessWidget {
   final double? radius;
   final Icon? icon;
   final bool iconPositionFront;
+  final double? fontSize;
+  final Size? buttonSize;
+  final bool iconOnly;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
+        fixedSize: buttonSize ?? const Size(double.infinity, double.infinity),
+        minimumSize: buttonSize ?? const Size(double.infinity, 0),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius ?? 10),
+          borderRadius: BorderRadius.circular(radius ?? 20),
         ),
         padding: EdgeInsets.symmetric(
           horizontal: horizontalPadding ?? 50,
           vertical: verticalPadding ?? 17,
         ),
-        backgroundColor: backgroundColor ?? Colours.primaryColour,
+        backgroundColor: backgroundColor ?? Colours.accentColour,
         foregroundColor: foregroundColor ?? Colors.white,
       ),
       onPressed: () async {
         onPressed();
       },
       child: icon == null
-          ? Text(
+          ? MainText(
               text,
-              style: TextStyle(
-                fontFamily: fontFamily ?? Fonts.inter,
-                fontWeight: fontWeight ?? FontWeight.bold,
-                color: foregroundColor ?? Colors.white,
-              ),
+              fontSize: fontSize,
+              fontFamily: fontFamily,
+              fontWeight: fontWeight ?? FontWeight.bold,
+              color: foregroundColor ?? Colors.white,
             )
-          : SizedBox(
-              width: 100,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  (iconPositionFront) ? icon! : const SizedBox(),
-                  (iconPositionFront)
-                      ? const SizedBox(width: 10)
-                      : const SizedBox(),
-                  Text(
-                    text,
-                    style: TextStyle(
-                      fontFamily: fontFamily ?? Fonts.inter,
-                      fontWeight: fontWeight ?? FontWeight.bold,
-                      color: foregroundColor ?? Colors.white,
-                    ),
+          : iconOnly
+              ? icon
+              : SizedBox(
+                  width: 100,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      (iconPositionFront) ? icon! : const SizedBox(),
+                      (iconPositionFront)
+                          ? const SizedBox(width: 10)
+                          : const SizedBox(),
+                      MainText(
+                        text,
+                        fontSize: fontSize,
+                        fontFamily: fontFamily,
+                        fontWeight: fontWeight ?? FontWeight.bold,
+                        color: foregroundColor ?? Colors.white,
+                      ),
+                      (!iconPositionFront)
+                          ? const SizedBox(width: 10)
+                          : const SizedBox(),
+                      (!iconPositionFront) ? icon! : const SizedBox(),
+                    ],
                   ),
-                  (!iconPositionFront)
-                      ? const SizedBox(width: 10)
-                      : const SizedBox(),
-                  (!iconPositionFront) ? icon! : const SizedBox(),
-                ],
-              ),
-            ),
+                ),
     );
   }
 }

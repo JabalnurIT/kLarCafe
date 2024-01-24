@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:klarcafe/core/res/colours.dart';
 
 import '../../../../core/common/app/providers/user_provider.dart';
 import '../../../../core/common/widgets/gradient_background.dart';
@@ -7,9 +8,9 @@ import '../../../../core/res/fonts.dart';
 import '../../../../core/res/media_res.dart';
 import '../../../../core/utils/core_utils.dart';
 import '../../../dashboard/presentation/views/dashboard.dart';
+import '../../../ordering/presentation/views/menu_screen.dart';
 import '../../data/models/user_model.dart';
 import '../bloc/auth_bloc.dart';
-import 'sign_in_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -30,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colours.neutralColour,
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) async {
           if (state is AuthError) {
@@ -42,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
             });
           } else if (state is NotSignedIn) {
             await Future.delayed(const Duration(seconds: 1), () {
-              Navigator.pushReplacementNamed(context, SignInScreen.routeName);
+              Navigator.pushReplacementNamed(context, MenuScreen.routeName);
             });
           }
         },
@@ -60,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         fontFamily: Fonts.inter,
                         fontWeight: FontWeight.bold,
                         fontSize: 32,
-                        color: Colors.white,
+                        color: Colours.primaryColour,
                       ),
                     ),
                     Image.asset(MediaRes.flutterIcons),
@@ -69,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     const Center(
                       child: CircularProgressIndicator(
-                        color: Colors.white,
+                        color: Colours.primaryColour,
                       ),
                     ),
                   ],

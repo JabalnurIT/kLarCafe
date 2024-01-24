@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../res/colours.dart';
+
 class GradientBackground extends StatelessWidget {
   const GradientBackground({
     required this.image,
@@ -21,6 +23,10 @@ class GradientBackground extends StatelessWidget {
             height: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
+                colorFilter: const ColorFilter.mode(
+                  Colours.accentLighterColour,
+                  BlendMode.srcOver,
+                ),
                 alignment: Alignment.topCenter,
                 image: AssetImage(image),
                 fit: BoxFit.cover,
